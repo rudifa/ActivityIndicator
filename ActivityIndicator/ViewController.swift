@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ViewController: UIViewController {
     
@@ -14,15 +15,19 @@ class ViewController: UIViewController {
     
     @IBAction func startIndicator(_ sender: Any) {
         
-        activityIndicator.center = self.view.center
+        activityIndicator.center = CGPoint(x: self.view.center.x, y: self.view.center.y / CGFloat(2))
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
+        
+        SVProgressHUD.show(withStatus: "SVProgressHUD..")
     }
     
     @IBAction func stopIndicator(_ sender: Any) {
         activityIndicator.stopAnimating()
+        
+        SVProgressHUD.dismiss()
     }
     
     override func viewDidLoad() {
