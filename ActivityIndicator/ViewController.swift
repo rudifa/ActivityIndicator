@@ -9,7 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var activityIndicator = UIActivityIndicatorView()
+    
+    @IBAction func startIndicator(_ sender: Any) {
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    @IBAction func stopIndicator(_ sender: Any) {
+        activityIndicator.stopAnimating()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
